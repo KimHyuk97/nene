@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -54,13 +54,17 @@ const GlobalStyle = createGlobalStyle`
     }
     html, body {
         width: 100%;
-        height: 100%;
         margin: 0;
         padding: 0;
         font: 1rem/1.5 'Noto Sans KR', sans-serif;
         font-weight: 400;
         color: #212121;
         letter-spacing: -0.5px;
+
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
     }
     a {
         text-decoration: none;
@@ -95,6 +99,6 @@ const GlobalStyle = createGlobalStyle`
     ul, ol, li {
         list-style: none;
     }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
