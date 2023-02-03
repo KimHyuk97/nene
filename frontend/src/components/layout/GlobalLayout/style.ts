@@ -28,7 +28,6 @@ export const Main = styled.main`
 export const Inner = styled.div`
 	position: relative;
 	max-width: 1080px;
-	padding: 0 15px;
 	margin: 0 auto;
 	min-height: calc(100vh - 253px);
 `;
