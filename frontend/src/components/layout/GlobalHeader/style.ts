@@ -19,7 +19,6 @@ export const Inner = styled.div`
     height: 100%;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 0 16px;
 `;
 
 
