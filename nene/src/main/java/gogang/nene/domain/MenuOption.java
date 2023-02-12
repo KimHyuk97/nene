@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -31,4 +32,18 @@ public class MenuOption {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "menu_id")
     private Menu menu;
+
+    @Builder
+    public MenuOption(Long id, Option options, Menu menu) {
+        this.id = id;
+        this.options = options;
+        this.menu = menu;
+    }
+
+    public static MenuOption toEntity(Option options) {
+        return MenuOption.builder()
+                .options(options)
+                .build();
+    }
+
 }

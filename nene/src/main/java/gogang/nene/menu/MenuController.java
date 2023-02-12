@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MenuController {
 
-    // private final MenuRepository menuRepository;
+    private final MenuService menuService;
 
     @GetMapping("/menu/{id}")
     public void get(@PathVariable Long id) {
@@ -28,7 +28,7 @@ public class MenuController {
 
     @PostMapping("/menu")
     public void create(@Valid MenuCreate request) {
-
+        menuService.create(request);
     }
 
     @PatchMapping("/menu")

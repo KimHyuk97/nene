@@ -18,3 +18,16 @@ spring:
     sql:
         init:
             mode: always
+
+cloud:
+    aws:
+        credentials:
+            access-key: AKIAWWTC5ABIC453THHU
+            secret-key: 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
+        region:
+            static: ap-northeast-2
+        s3:
+            bucket: ondongne-bucket
+            path: https://ondongne-bucket.s3.ap-northeast-2.amazonaws.com
+        stack:
+            auto: false

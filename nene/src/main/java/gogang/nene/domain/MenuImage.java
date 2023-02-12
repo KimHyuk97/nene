@@ -28,4 +28,9 @@ public class MenuImage {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "menu_id")
     private Menu menu;
+
+    public MenuImage(File file) {
+        this.image = file.getName();
+    }
+
 }
