@@ -2,7 +2,6 @@ package gogang.nene.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,12 +24,16 @@ public class MenuImage {
     @Column(nullable = false)
     private String image;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
     public MenuImage(File file) {
         this.image = file.getName();
+    }
+
+    public void addMenu(Menu menu) {
+        this.menu = menu;
     }
 
 }

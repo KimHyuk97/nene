@@ -1,7 +1,7 @@
 package gogang.nene.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import gogang.nene.menu.MenuCreate;
 import jakarta.persistence.CascadeType;
@@ -17,9 +17,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Getter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Menu {
 
@@ -42,24 +44,21 @@ public class Menu {
     private Category category;
 
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MenuOption> options = new ArrayList<>();
+    private List<MenuOption> menuOptions = new ArrayList<>();
 
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MenuImage> images = new ArrayList<>();
+    private List<MenuImage> menuImages = new ArrayList<>();
 
     @Builder
-    public Menu(Long id, String name, String description, long price, Category category, List<MenuOption> options,
-            List<MenuImage> images) {
+    public Menu(Long id, String name, String description, long price, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
-        this.options = options;
-        this.images = images;
     }
 
-    public static Menu toEntity(MenuCreate request) {
+    public static Menu of(MenuCreate request) {
         return Menu.builder()
                 .name(request.getName())
                 .description(request.getDescription())
@@ -68,12 +67,13 @@ public class Menu {
                 .build();
     }
 
-    public void addOptions(List<MenuOption> options) {
-        this.options = options;
+    public void addOptions(MenuOption menuOption) {
+        menuOption.addMenu(this);
+        this.menuOptions.add(menuOption);
     }
 
-    public void addImages(List<MenuImage> images) {
-        this.images = images;
+    public void addImage(MenuImage menuImage) {
+        menuImage.addMenu(this);
+        this.menuImages.add(menuImage);
     }
-
 }

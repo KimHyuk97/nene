@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,11 +24,11 @@ public class MenuOption {
     @Column(name = "menu_option_id")
     private Long id;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Option options;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
@@ -40,10 +39,14 @@ public class MenuOption {
         this.menu = menu;
     }
 
-    public static MenuOption toEntity(Option options) {
+    public static MenuOption of(Option options) {
         return MenuOption.builder()
                 .options(options)
                 .build();
+    }
+
+    public void addMenu(Menu menu) {
+        this.menu = menu;
     }
 
 }
