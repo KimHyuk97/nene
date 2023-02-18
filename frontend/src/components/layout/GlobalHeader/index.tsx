@@ -8,8 +8,6 @@ const GlobalHeader = () => {
         <S.Header>
             <S.Inner>
                 <Logo path="/" size={"small"} />
-                <div>홈</div>
-                <div>메뉴</div>
             </S.Inner>
         </S.Header>
     )

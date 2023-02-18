@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "치즈스노윙치킨",
+        "price": 20000,
+        "category": "chicken",
+        "image": "menu/cheeseSnowing.jpg",
+        "discription": "입 안에서 사르르 녹는 스노윙 치즈",
+        "options": ["BONE", "BONELESS", "HOT", "HALF", "COMBO", "WING", "LEG"]
+    },
+    {
+        "id": 2,
+        "name": "매콤치즈스노윙치킨",
+        "price": 20000,
+        "category": "chicken",
+        "image": "menu/spicyCheese.jpg",
+        "discription": "바삭한 치킨 위에 매콤한 눈이 내린다! 스노윙, 이번엔 빨간 맛!",
+        "options": ["BONE", "BONELESS", "HOT", "HALF", "COMBO", "WING", "LEG"]
+    },
+    {
+        "id": 3,
+        "name": "어니언스노윙치킨",
+        "price": 20000,
+        "category": "chicken",
+        "image": "menu/cheeseSnowing.jpg",
+        "discription": "같은 치즈도 특별하게 먹는 나만의 방법",
+        "options": ["BONE", "BONELESS", "HOT", "HALF", "COMBO", "WING", "LEG"]
+    },
+    {
+        "id": 4,
+        "name": "매콤치즈스노윙치킨",
+        "price": 20000,
+        "category": "chicken",
+        "image": "menu/greenOnion.jpg",
+        "discription": "새콤달콤 짭쪼름한 오리엔탈소스에 신선한 파가 듬뿍",
+        "options": ["BONE", "BONELESS", "HOT", "HALF", "COMBO", "WING", "LEG"]
+    }
+]

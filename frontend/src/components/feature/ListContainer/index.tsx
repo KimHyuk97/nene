@@ -1,25 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-
+import list from "../../../data/menu.json";
+import MenuCard from "../MenuCard";
 
 interface ListContainerPropsType {
     title: string;
     category: string;
 }
 
-const ListContainer = ({title, category}: ListContainerPropsType) => {
-
-
-
+const ListContainer = ({ title, category }: ListContainerPropsType) => {
     return (
         <Container>
             <h1>{title}</h1>
             <div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                {
+                    list.map(item => (
+                        <React.Fragment key={item.id}>
+                            <MenuCard key={item.id} item={item} />
+                        </React.Fragment>
+                    ))
+                }
             </div>
         </Container>
     )
@@ -27,29 +27,32 @@ const ListContainer = ({title, category}: ListContainerPropsType) => {
 
 const Container = styled.div`
     width: 100%;
-    height: 400px;
+    height: 338px;
     display: flex;
     flex-direction: column;
     gap: 20px 0;
-    padding: 0 16px;
+    margin: 60px 0;
 
     & h1 {
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
     }
 
-    & > div {
+    > div {
         display: flex;
-        align-items: center;
-        gap: 0 20px;
+        width: 100%;
+        gap: 16px;
+    
+        @media screen and (max-width: 1280px) {
+            overflow: scroll hidden;
+            & ::webkit-scrollbar {
+                display: none;
+            }
+        }
     }
 
-    & > div > div {
-        width: 100%;
-        height: 300px;
-        max-width: 300px;
-        max-height: 300px;
-        background-color: #f2f2f2;
+    @media screen and (max-width: 1280px) {
+        padding: 0 16px;
     }
 `
 

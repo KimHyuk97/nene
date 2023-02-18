@@ -17,7 +17,7 @@ export const Inner = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
-    max-width: 1080px;
+    max-width: 1280px;
     margin: 0 auto;
 `;
 

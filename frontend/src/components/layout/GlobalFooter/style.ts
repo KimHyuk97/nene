@@ -13,7 +13,7 @@ export const Footer = styled.footer`
 export const Inner = styled.div`
 	display: flex;
 	gap: 40px;
-	max-width: 1080px;
+	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 16px;
 	@media (${({ theme }) => theme.media.tabletSmall}) {
